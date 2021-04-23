@@ -170,6 +170,6 @@ function endQuiz() {
         var scoresString = JSON.stringify(highScores);
         localStorage.setItem("highScores", scoresString);
         // load high scores page
-        window.location.replace("./highscores.html");
+        window.location.replace("highscores.html");
     })
 }
