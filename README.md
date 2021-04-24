@@ -8,7 +8,7 @@ The quiz is timed with a score based on that time.  This score is stored, along 
 Each question in the quiz should be displayed dynamically and listen for user events to gauge activity and correctness (for scoring).
 
 ## Demo
-![a gif image of the deployed application wherein the user clicks through all questions, submits their intials and score, clears their score, then navigates back to the beginning](assets\javaquizgif.gif)
+![a gif image of the deployed application wherein the user clicks through all questions, submits their intials and score, clears their score, then navigates back to the beginning](assets/javaquizgif.gif)
 
 ## Links
 [Deployed Application](https://curtisaurus.github.io/javaquiz/)
