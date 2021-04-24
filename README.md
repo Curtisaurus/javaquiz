@@ -12,4 +12,5 @@ Each question in the quiz should be displayed dynamically and listen for user ev
 
 ## Links
 [Deployed Application](https://curtisaurus.github.io/javaquiz/)
+
 [Github](https://github.com/Curtisaurus/javaquiz)
