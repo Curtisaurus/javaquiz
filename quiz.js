@@ -37,6 +37,8 @@ var timeLeft = 75;
 var qIndex = 0;
 // declaring setInterval variable as global to clear anywhere
 var quizTimer;
+// declaring result area variable to be cleared upon question selection
+var result;
 
 // clears page, starts timer, and renders questions on start button click
 startBtn.addEventListener("click", function() {
@@ -61,35 +63,43 @@ function startTimer() {
 // renders quiz questions based on value of qIndex
 function renderQuiz() {
     quizArea.innerHTML = "";
-    quizArea.textContent = questions[qIndex].clue;
 
-    // placeholder ul to hold list item answers
-    var ulEl = document.createElement('ul');
-    quizArea.appendChild(ulEl);
+    var questionText = document.createElement("h2");
+    questionText.textContent = questions[qIndex].clue;
+    quizArea.appendChild(questionText);
 
+    // assigns possible quiz options to variable
     var options = questions[qIndex].options
 
     // loops through possible answers in array in object at qIndex
-    // these are appended into the ul just below the clue/question as list items
+    // these are appended into the quiz area just below the clue/question as buttons
     for (i = 0; i < options.length; i++) {
-        var quizOption = document.createElement("li");
+        var quizOption = document.createElement("button");
         quizOption.textContent = options[i];
-        ulEl.appendChild(quizOption);
+        quizArea.appendChild(quizOption);
         quizOption.addEventListener("click", check);
     }
 }
 
 // checks if answer is correct
 function check(event) {
+     
+    // removes result display from last question
+    if (result) {
+        result.remove();
+    }
+
     // declares variables for user selection and answer for question
     var guess = event.target.textContent;
     var answer = questions[qIndex].answer;
+
     // creates a div to display result outside of quizArea (quizArea cleared on question render)
-    var result = document.createElement("div")
+    result = document.createElement("div")
+    result.setAttribute("id", "result");
 
     // compares answer and user selection, changing content of result div to reflect
     if (guess != answer) {
-        timeLeft = timeLeft - 10;
+        timeLeft = timeLeft - 15;
         result.textContent = "Incorrect";
     } else {
         result.textContent = "Correct!"
@@ -106,11 +116,11 @@ function check(event) {
         clearInterval(quizTimer);
     }
 
-    // show whether question was right or wrong for 2 seconds
-    resultArea.appendChild(result);
+    // show whether question was right or wrong for 1 second
+    resultArea.appendChild(result)
     setTimeout(function() {
         result.remove();
-    }, 2000);
+    }, 1000);
 }
 
 function endQuiz() {
@@ -127,20 +137,25 @@ function endQuiz() {
     scoreText.textContent = "Your final score was: " + timeLeft;
     quizArea.appendChild(scoreText);
 
+    // creates area for submit form, button, and label to be displayed in a row
+    var submitEl = document.createElement("div");
+    submitEl.setAttribute("id", "sumbit-area");
+    quizArea. appendChild(submitEl);
+
     // creates label for input textbox
     var inputLabel = document.createElement("label");
     inputLabel.textContent = "Enter your initials:";
-    quizArea.appendChild(inputLabel);
+    submitEl.appendChild(inputLabel);
 
     // creates input textbox for initials
     var initialBox = document.createElement("input");
-    quizArea.appendChild(initialBox);
+    submitEl.appendChild(initialBox);
 
     // button to submit initials
-    var initialSubmit = document.createElement("button")
+    var initialSubmit = document.createElement("button");
     initialSubmit.setAttribute("type", "submit");
-    initialSubmit.textContent = "Submit"
-    quizArea.appendChild(initialSubmit)
+    initialSubmit.textContent = "Submit";
+    submitEl.appendChild(initialSubmit);
 
     // on clicking the submit button...
     initialSubmit.addEventListener("click", function() {

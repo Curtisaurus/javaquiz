@@ -6,7 +6,11 @@ var scoreboard = document.querySelector("#scoreboard")
 var backBtn = document.querySelector("#back");
 var clearBtn = document.querySelector("#clear");
 
-renderScores();
+// going to highscores from quiz without creating highScores ojbect (i.e. running quiz once) created an error
+// this checks to make sure it exists as an array before running
+if (Array.isArray(highScores)) {
+    renderScores();
+}
 
 // goes back to quiz page
 backBtn.addEventListener("click", function() {

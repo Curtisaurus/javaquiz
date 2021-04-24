@@ -1,0 +1,73 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 700;
+    margin: 10px
+}
+
+h2 {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 5px;
+}
+
+.head-objects {
+    margin: 2px;
+}
+
+#quiz-area {
+    width: 40vw;
+    margin: auto;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+ul {
+    width: 70%
+}
+li {
+    background-color: rgb(227, 193, 231);
+    margin: 3px;
+    padding: 2px;
+}
+#intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    background-color: rgb(74, 6, 100);
+    color: white;
+    border-radius: 10%;
+    margin: 2px;
+}
+
+#result {
+    width: 40vw;
+    margin: auto;
+    border-top: 0.5px solid rgb(119, 119, 119);
+    color: rgb(119, 119, 119);
+    padding: 3px;
+    margin-top: 3px;
+}
+
+#submit-area {
+    display: flex;
+    margin: 5px;
+}
+
+#btn-row{
+    display: flex;
+    justify-content: space-around;
+}
